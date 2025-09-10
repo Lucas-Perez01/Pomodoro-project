@@ -13,6 +13,7 @@ body {
   justify-content: center;
   min-height: 100vh;
   color: #333;
+  transition: background-image 0.5s ease-in-out;
 }
 
 .pomodoro-title {
