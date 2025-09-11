@@ -21,9 +21,6 @@
     <!-- Header -->
     <header>
       <h1 class="pomodoro-title">Pomodoro Timer</h1>
-      <button id="toggle-settings" class="settings-btn">
-        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
-      </button>
     </header>
 
     <!-- Main content -->
@@ -32,41 +29,58 @@
       <section class="pomodoro">
         <div class="pomodoro-time-container">
           <time datetime="PT25M">25:00</time>
+
+          <!-- Botón settings -->
+          <button id="toggle-settings" class="settings-btn">
+            <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+          </button>
+
+          <!-- Panel tipo Momentum (popover al lado del reloj) -->
+          <div class="settings-panel" id="settings-panel">
+            <div class="settings-container">
+              <div class="settings-item">
+                <label for="work-time"><span>Focus</span></label>
+                <div class="input-wrapper">
+                  <input
+                    id="work-time"
+                    type="number"
+                    value="25"
+                    min="1"
+                    max="60"
+                  />
+                  <span class="unit">min</span>
+                </div>
+              </div>
+              <div class="settings-item">
+                <label for="break-time"><span>Break</span></label>
+                <div class="input-wrapper">
+                  <input
+                    id="break-time"
+                    type="number"
+                    value="5"
+                    min="1"
+                    max="60"
+                  />
+                  <span class="unit">min</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Controls -->
       <section class="controls">
         <div class="buttons-container">
-          <!-- Botón dinámico Start / Pause -->
           <button id="btn-start-pause" aria-label="Start Timer">
             <ion-icon name="play-sharp"></ion-icon>
           </button>
-
-          <!-- Botón Restart -->
           <button id="btn-restart" aria-label="Restart Timer">
             <ion-icon name="refresh-sharp"></ion-icon>
           </button>
         </div>
       </section>
     </main>
-
-    <!-- Settings Modal -->
-    <section class="settings" id="settings-modal">
-      <div class="settings-container">
-        <div class="settings-item">
-          <label for="work-time"><span>Focus</span></label>
-          <input id="work-time" type="number" value="25" min="1" max="60" />
-        </div>
-        <div class="settings-item">
-          <label for="break-time"><span>Break</span></label>
-          <input id="break-time" type="number" value="5" min="1" max="60" />
-        </div>
-        <button id="close-settings" class="close-btn">
-          <ion-icon name="close-outline"></ion-icon>
-        </button>
-      </div>
-    </section>
 
     <!-- Scripts -->
     <script src="./scripts/pomodoro.js"></script>

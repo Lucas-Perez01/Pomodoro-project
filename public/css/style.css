@@ -15,6 +15,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-image: url("/photo-1621839673705-6617adf9e890.jpeg");
+  background-position: center;
   min-height: 100vh;
   transition: background-image 0.5s ease-in-out;
 }
@@ -25,10 +27,6 @@ body {
   font-weight: 100;
   margin: 2rem 0;
   color: var(--time-color);
-}
-
-.pomodoro-time-container {
-  margin-bottom: 2rem;
 }
 
 time {
