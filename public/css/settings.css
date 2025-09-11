@@ -1,0 +1,95 @@
+/* Modal (overlay) */
+.settings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 999;
+}
+
+/* Cuando el modal está activo */
+.settings.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Caja blanca centrada */
+.settings-container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: translateY(-30px);
+  transition: transform 0.3s ease-in-out;
+  min-width: 300px;
+  position: relative;
+}
+
+/* Animación al mostrar */
+.settings.show .settings-container {
+  transform: translateY(0);
+}
+
+/* Items de configuración */
+.settings-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.settings-item label {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.settings-item input {
+  width: 60px;
+  padding: 0.4rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.settings-item input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Botón abrir modal */
+.settings-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: black;
+  z-index: 1000;
+}
+
+/* Botón cerrar modal */
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: black;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.close-btn:hover {
+  color: red;
+}

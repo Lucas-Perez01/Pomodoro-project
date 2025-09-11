@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pomodoro</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/settings.css" />
+
+    <!-- Fuente -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,47 +18,62 @@
     />
   </head>
   <body>
+    <!-- Header -->
     <header>
       <h1 class="pomodoro-title">Pomodoro Timer</h1>
+      <button id="toggle-settings" class="settings-btn">
+        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+      </button>
     </header>
 
+    <!-- Main content -->
     <main>
+      <!-- Timer -->
       <section class="pomodoro">
         <div class="pomodoro-time-container">
           <time datetime="PT25M">25:00</time>
         </div>
       </section>
 
+      <!-- Controls -->
       <section class="controls">
         <div class="buttons-container">
-          <button class="btn-start">
+          <!-- Botón dinámico Start / Pause -->
+          <button id="btn-start-pause" aria-label="Start Timer">
             <ion-icon name="play-sharp"></ion-icon>
           </button>
-          <button class="btn-stop">
-            <ion-icon name="pause-sharp"></ion-icon>
-          </button>
-          <button class="btn-reset">
+
+          <!-- Botón Restart -->
+          <button id="btn-restart" aria-label="Restart Timer">
             <ion-icon name="refresh-sharp"></ion-icon>
           </button>
         </div>
       </section>
-
-      <section class="settings">
-        <div class="settings-container">
-          <div class="settings-item">
-            <label for="work-time"><span>Focus</span></label>
-            <input id="work-time" type="number" value="25" min="1" max="60" />
-          </div>
-          <div class="settings-item">
-            <label for="break-time"><span>Break</span></label>
-            <input id="break-time" type="number" value="5" min="1" max="60" />
-          </div>
-        </div>
-      </section>
     </main>
 
+    <!-- Settings Modal -->
+    <section class="settings" id="settings-modal">
+      <div class="settings-container">
+        <div class="settings-item">
+          <label for="work-time"><span>Focus</span></label>
+          <input id="work-time" type="number" value="25" min="1" max="60" />
+        </div>
+        <div class="settings-item">
+          <label for="break-time"><span>Break</span></label>
+          <input id="break-time" type="number" value="5" min="1" max="60" />
+        </div>
+        <button id="close-settings" class="close-btn">
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+      </div>
+    </section>
+
+    <!-- Scripts -->
     <script src="./scripts/pomodoro.js"></script>
     <script src="./scripts/unsplash-image.js"></script>
+    <script src="./scripts/settings.js"></script>
+
+    <!-- Ionicons -->
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
