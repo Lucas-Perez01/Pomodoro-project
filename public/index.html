@@ -19,8 +19,9 @@
   </head>
   <body>
     <!-- Header -->
-    <header>
-      <h1 class="pomodoro-title">Pomodoro Timer</h1>
+    <header class="session-header">
+      <h1 id="focus-label" class="session-label active">Focus</h1>
+      <h1 id="break-label" class="session-label">Break</h1>
     </header>
 
     <!-- Main content -->
@@ -28,14 +29,13 @@
       <!-- Timer -->
       <section class="pomodoro">
         <div class="pomodoro-time-container">
-          <time datetime="PT25M">25:00</time>
+          <time id="time" datetime="PT25M">25:00</time>
 
           <!-- Botón settings -->
           <button id="toggle-settings" class="settings-btn">
             <ion-icon name="ellipsis-vertical-outline"></ion-icon>
           </button>
 
-          <!-- Panel tipo Momentum (popover al lado del reloj) -->
           <div class="settings-panel" id="settings-panel">
             <div class="settings-container">
               <div class="settings-item">
@@ -83,8 +83,9 @@
     </main>
 
     <!-- Scripts -->
-    <script src="./scripts/pomodoro.js"></script>
-    <script src="./scripts/unsplash-image.js"></script>
+    <script type="module" src="./scripts/pomodoro.js"></script>
+    <!-- <script src="./scripts/notifications.js"></script>
+    <script src="./scripts/unsplash-image.js"></script> -->
     <script src="./scripts/settings.js"></script>
 
     <!-- Ionicons -->

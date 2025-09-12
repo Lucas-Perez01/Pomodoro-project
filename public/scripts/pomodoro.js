@@ -1,48 +1,45 @@
-// ----------------------------
-// Variables y referencias
-// ----------------------------
-let workTime = getTimeFromInput(document.getElementById("work-time"));
-let breakTime = getTimeFromInput(document.getElementById("break-time"));
+import { updateDisplay, updateSessionLabels } from "./display.js";
+import { getTimeFromInput, setupInputListeners } from "./inputs.js";
+import { notifyUser, requestPermission } from "./notifications.js";
+
+let workTime, breakTime;
 let isRunning = false;
 let isWorkTime = true;
 let timer;
 
-const timeDisplay = document.querySelector("time");
-const workInput = document.getElementById("work-time");
-const breakInput = document.getElementById("break-time");
+document.addEventListener("DOMContentLoaded", () => {
+  requestPermission();
 
-const btnStartPause = document.getElementById("btn-start-pause");
-const btnRestart = document.getElementById("btn-restart");
+  // Valores iniciales
+  workTime = 25 * 60;
+  breakTime = 5 * 60;
 
-// ----------------------------
-// Función para leer input seguro
-// ----------------------------
-function getTimeFromInput(inputEl) {
-  let val = parseInt(inputEl.value, 10);
-  if (isNaN(val) || val < 1) val = 1;
-  if (val > 999) val = 999;
-  inputEl.value = val;
-  return val * 60;
-}
+  updateDisplay(workTime);
+  updateSessionLabels(isWorkTime);
+  updateStartPauseIcon();
 
-// ----------------------------
-// Función para actualizar display
-// ----------------------------
-function updateDisplay(seconds) {
-  const h = Math.floor(seconds / 3600);
-  const m = Math.floor((seconds % 3600) / 60);
-  const s = seconds % 60;
+  const workInputEl = document.getElementById("work-time");
+  const breakInputEl = document.getElementById("break-time");
 
-  if (h > 0) {
-    timeDisplay.textContent = `${String(h).padStart(2, "0")}:${String(
-      m
-    ).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
-  } else {
-    timeDisplay.textContent = `${String(m).padStart(2, "0")}:${String(
-      s
-    ).padStart(2, "0")}`;
-  }
-}
+  // Setup listeners de inputs
+  setupInputListeners(
+    workInputEl,
+    breakInputEl,
+    updateDisplay,
+    () => isRunning,
+    () => isWorkTime,
+    (val) => (workTime = val),
+    (val) => (breakTime = val)
+  );
+
+  // Botones
+  document.querySelector("#btn-start-pause").addEventListener("click", () => {
+    if (!isRunning) startTimer();
+    else stopTimer();
+  });
+
+  document.querySelector("#btn-restart").addEventListener("click", resetTimer);
+});
 
 // ----------------------------
 // Temporizador
@@ -68,76 +65,49 @@ function startTimer() {
 function stopTimer() {
   clearInterval(timer);
   isRunning = false;
-  updateStartPauseIcon();
+  updateStartPauseIcon(); // 🔹 sincroniza icono
 }
 
 function resetTimer() {
   stopTimer();
-  workTime = getTimeFromInput(workInput);
-  breakTime = getTimeFromInput(breakInput);
+  workTime = getTimeFromInput(document.getElementById("work-time"));
+  breakTime = getTimeFromInput(document.getElementById("break-time"));
   isWorkTime = true;
   updateDisplay(workTime);
+  updateSessionLabels(isWorkTime);
 }
 
 // ----------------------------
-// Cambiar entre Work / Break
+// Cambiar entre Focus / Break
 // ----------------------------
 function switchToBreak() {
   isWorkTime = false;
-  breakTime = getTimeFromInput(breakInput);
+  breakTime = getTimeFromInput(document.getElementById("break-time"));
   updateDisplay(breakTime);
+  updateSessionLabels(isWorkTime);
   stopTimer();
+  notifyUser("Tiempo de descanso 🛋️");
 }
 
 function switchToWork() {
   isWorkTime = true;
-  workTime = getTimeFromInput(workInput);
+  workTime = getTimeFromInput(document.getElementById("work-time"));
   updateDisplay(workTime);
+  updateSessionLabels(isWorkTime);
   stopTimer();
+  notifyUser("Hora de concentrarse 💻");
 }
 
 // ----------------------------
-// Actualizar icono Start / Pause
+// Icono play/pause
 // ----------------------------
 function updateStartPauseIcon() {
+  const btn = document.querySelector("#btn-start-pause");
   if (isRunning) {
-    btnStartPause.innerHTML = '<ion-icon name="pause-sharp"></ion-icon>';
-    btnStartPause.setAttribute("aria-label", "Pause Timer");
+    btn.innerHTML = '<ion-icon name="pause-sharp"></ion-icon>';
+    btn.setAttribute("aria-label", "Pause Timer");
   } else {
-    btnStartPause.innerHTML = '<ion-icon name="play-sharp"></ion-icon>';
-    btnStartPause.setAttribute("aria-label", "Start Timer");
+    btn.innerHTML = '<ion-icon name="play-sharp"></ion-icon>';
+    btn.setAttribute("aria-label", "Start Timer");
   }
 }
-
-// ----------------------------
-// Event listeners
-// ----------------------------
-btnStartPause.addEventListener("click", () => {
-  if (!isRunning) startTimer();
-  else stopTimer();
-});
-
-btnRestart.addEventListener("click", resetTimer);
-
-// Inputs actualizan los tiempos en vivo si el temporizador está detenido
-workInput.addEventListener("input", () => {
-  const val = parseInt(workInput.value, 10);
-  if (!isRunning && isWorkTime && !isNaN(val) && val > 0) {
-    workTime = val * 60;
-    updateDisplay(workTime);
-  }
-});
-
-breakInput.addEventListener("input", () => {
-  const val = parseInt(breakInput.value, 10);
-  if (!isRunning && !isWorkTime && !isNaN(val) && val > 0) {
-    breakTime = val * 60;
-    updateDisplay(breakTime);
-  }
-});
-
-// ----------------------------
-// Inicializar display
-// ----------------------------
-updateDisplay(workTime);
-updateStartPauseIcon();
