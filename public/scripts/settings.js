@@ -1,51 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const toggleBtn = document.getElementById("toggle-settings");
-  const settingsPanel = document.getElementById("settings-panel");
-
-  const workInputEl = document.getElementById("work-time");
-  const breakInputEl = document.getElementById("break-time");
-document.addEventListener("DOMContentLoaded", () => {
   // Panel lateral
   const toggleBtn = document.getElementById("toggle-settings");
   const settingsPanel = document.getElementById("settings-panel");
-  const closeBtn = document.getElementById("close-settings");
 
   // Inputs
   const workInputEl = document.getElementById("work-time");
   const breakInputEl = document.getElementById("break-time");
 
-// Actualizar tiempo de trabajo en vivo
-workInput.addEventListener("input", () => {
-  workTime = parseInt(workInput.value, 10) * 60;
+  // Abrir panel lateral
+  toggleBtn.addEventListener("click", () => {
+    settingsPanel.classList.toggle("show");
+  });
 
-  // Solo actualiza la pantalla si estamos en modo trabajo y el timer está detenido
-  if (isWorkTime && !isRunning) {
-    updateDisplay(workTime);
+  // Función para manejar input de forma segura
+  function handleInput(inputEl, isWork) {
+    inputEl.addEventListener("input", () => {
+      const val = inputEl.value;
+
+      // Permitir input vacío temporalmente
+      if (val === "") return;
+
+      let num = parseInt(val, 10);
+
+      if (!isNaN(num) && num > 0) {
+        if (num > 999) num = 999; // límite máximo
+        inputEl.value = num; // actualizar input
+        if (isWork) {
+          workTime = num * 60;
+          if (isWorkTime && !isRunning) updateDisplay(workTime);
+        } else {
+          breakTime = num * 60;
+          if (!isWorkTime && !isRunning) updateDisplay(breakTime);
+        }
+      }
+    });
   }
-});
 
-// Actualizar tiempo de descanso en vivo
-breakInput.addEventListener("input", () => {
-  breakTime = parseInt(breakInput.value, 10) * 60;
-
-  // Solo actualiza la pantalla si estamos en modo descanso y el timer está detenido
-  if (!isWorkTime && !isRunning) {
-    updateDisplay(breakTime);
-  }
-});
-
-// toggle del boton de settings
-
-const toggleBtn = document.getElementById("toggle-settings");
-const settingsSection = document.querySelector(".settings");
-
-toggleBtn.addEventListener("click", () => {
-  settingsSection.classList.toggle("show");
-});
-
-const closeBtn = document.getElementById("close-settings");
-const settingsModal = document.getElementById("settings-modal");
-
-closeBtn.addEventListener("click", () => {
-  settingsModal.classList.remove("show");
+  handleInput(workInputEl, true);
+  handleInput(breakInputEl, false);
 });

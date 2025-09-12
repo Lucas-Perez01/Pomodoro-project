@@ -15,25 +15,18 @@ const btnStartPause = document.getElementById("btn-start-pause");
 const btnRestart = document.getElementById("btn-restart");
 
 // ----------------------------
-// Función para leer inputs de forma segura
+// Función para leer input seguro
 // ----------------------------
 function getTimeFromInput(inputEl) {
   let val = parseInt(inputEl.value, 10);
-
-  // Si está vacío o menor a 1, usar mínimo 1 minuto
   if (isNaN(val) || val < 1) val = 1;
-
-  // Limitar máximo 999 minutos
   if (val > 999) val = 999;
-
-  // Actualizar input para reflejar límites
   inputEl.value = val;
-
-  return val * 60; // Convertir a segundos
+  return val * 60;
 }
 
 // ----------------------------
-// Función para actualizar la pantalla
+// Función para actualizar display
 // ----------------------------
 function updateDisplay(seconds) {
   const h = Math.floor(seconds / 3600);
@@ -41,15 +34,13 @@ function updateDisplay(seconds) {
   const s = seconds % 60;
 
   if (h > 0) {
-    timeDisplay.textContent = `${h}:${String(m).padStart(2, "0")}:${String(
+    timeDisplay.textContent = `${String(h).padStart(2, "0")}:${String(
+      m
+    ).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+  } else {
+    timeDisplay.textContent = `${String(m).padStart(2, "0")}:${String(
       s
     ).padStart(2, "0")}`;
-  } else {
-    // Mostrar mínimo 01:00
-    timeDisplay.textContent = `${String(Math.max(m, 1)).padStart(
-      2,
-      "0"
-    )}:${String(s).padStart(2, "0")}`;
   }
 }
 
@@ -130,13 +121,19 @@ btnRestart.addEventListener("click", resetTimer);
 
 // Inputs actualizan los tiempos en vivo si el temporizador está detenido
 workInput.addEventListener("input", () => {
-  workTime = getTimeFromInput(workInput);
-  if (!isRunning && isWorkTime) updateDisplay(workTime);
+  const val = parseInt(workInput.value, 10);
+  if (!isRunning && isWorkTime && !isNaN(val) && val > 0) {
+    workTime = val * 60;
+    updateDisplay(workTime);
+  }
 });
 
 breakInput.addEventListener("input", () => {
-  breakTime = getTimeFromInput(breakInput);
-  if (!isRunning && !isWorkTime) updateDisplay(breakTime);
+  const val = parseInt(breakInput.value, 10);
+  if (!isRunning && !isWorkTime && !isNaN(val) && val > 0) {
+    breakTime = val * 60;
+    updateDisplay(breakTime);
+  }
 });
 
 // ----------------------------
