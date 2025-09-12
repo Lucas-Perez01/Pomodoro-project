@@ -1,8 +1,8 @@
 // ----------------------------
 // Variables y referencias
 // ----------------------------
-let workTime = parseInt(document.getElementById("work-time").value, 10) * 60;
-let breakTime = parseInt(document.getElementById("break-time").value, 10) * 60;
+let workTime = getTimeFromInput(document.getElementById("work-time"));
+let breakTime = getTimeFromInput(document.getElementById("break-time"));
 let isRunning = false;
 let isWorkTime = true;
 let timer;
@@ -15,15 +15,42 @@ const btnStartPause = document.getElementById("btn-start-pause");
 const btnRestart = document.getElementById("btn-restart");
 
 // ----------------------------
+// Función para leer inputs de forma segura
+// ----------------------------
+function getTimeFromInput(inputEl) {
+  let val = parseInt(inputEl.value, 10);
+
+  // Si está vacío o menor a 1, usar mínimo 1 minuto
+  if (isNaN(val) || val < 1) val = 1;
+
+  // Limitar máximo 999 minutos
+  if (val > 999) val = 999;
+
+  // Actualizar input para reflejar límites
+  inputEl.value = val;
+
+  return val * 60; // Convertir a segundos
+}
+
+// ----------------------------
 // Función para actualizar la pantalla
 // ----------------------------
 function updateDisplay(seconds) {
-  const m = Math.floor(seconds / 60);
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
   const s = seconds % 60;
-  timeDisplay.textContent = `${String(m).padStart(2, "0")}:${String(s).padStart(
-    2,
-    "0"
-  )}`;
+
+  if (h > 0) {
+    timeDisplay.textContent = `${h}:${String(m).padStart(2, "0")}:${String(
+      s
+    ).padStart(2, "0")}`;
+  } else {
+    // Mostrar mínimo 01:00
+    timeDisplay.textContent = `${String(Math.max(m, 1)).padStart(
+      2,
+      "0"
+    )}:${String(s).padStart(2, "0")}`;
+  }
 }
 
 // ----------------------------
@@ -55,9 +82,8 @@ function stopTimer() {
 
 function resetTimer() {
   stopTimer();
-  // Leer los valores actuales de los inputs
-  workTime = parseInt(workInput.value, 10) * 60;
-  breakTime = parseInt(breakInput.value, 10) * 60;
+  workTime = getTimeFromInput(workInput);
+  breakTime = getTimeFromInput(breakInput);
   isWorkTime = true;
   updateDisplay(workTime);
 }
@@ -67,16 +93,16 @@ function resetTimer() {
 // ----------------------------
 function switchToBreak() {
   isWorkTime = false;
-  breakTime = parseInt(breakInput.value, 10) * 60;
+  breakTime = getTimeFromInput(breakInput);
   updateDisplay(breakTime);
-  stopTimer(); // Detener automáticamente al cambiar
+  stopTimer();
 }
 
 function switchToWork() {
   isWorkTime = true;
-  workTime = parseInt(workInput.value, 10) * 60;
+  workTime = getTimeFromInput(workInput);
   updateDisplay(workTime);
-  stopTimer(); // Detener automáticamente al cambiar
+  stopTimer();
 }
 
 // ----------------------------
@@ -104,17 +130,13 @@ btnRestart.addEventListener("click", resetTimer);
 
 // Inputs actualizan los tiempos en vivo si el temporizador está detenido
 workInput.addEventListener("input", () => {
-  if (!isRunning && isWorkTime) {
-    workTime = parseInt(workInput.value, 10) * 60;
-    updateDisplay(workTime);
-  }
+  workTime = getTimeFromInput(workInput);
+  if (!isRunning && isWorkTime) updateDisplay(workTime);
 });
 
 breakInput.addEventListener("input", () => {
-  if (!isRunning && !isWorkTime) {
-    breakTime = parseInt(breakInput.value, 10) * 60;
-    updateDisplay(breakTime);
-  }
+  breakTime = getTimeFromInput(breakInput);
+  if (!isRunning && !isWorkTime) updateDisplay(breakTime);
 });
 
 // ----------------------------
