@@ -1,0 +1,39 @@
+{
+  "streams": [
+    {
+      "title": "Lofi Hip Hop Radio",
+      "src": "./assets/music/Lofi-hiphop.mp3",
+      "img": "./assets/images/Lofi-hiphop.jpg"
+    },
+    {
+      "title": "Lofi Piano Radio",
+      "src": "./assets/music/Lofi-piano.mp3",
+      "img": "./assets/images/Lofi-piano.jpg"
+    },
+    {
+      "title": "Lofi Coffe Radio",
+      "src": "./assets/music/Coffe-lofi.mp3",
+      "img": "./assets/images/Coffe-lofi.jpg"
+    },
+    {
+      "title": "Gibran Alcocer",
+      "src": "./assets/music/Gibran-Alcocer.mp3",
+      "img": "./assets/images/Gibran-Alcocer.jpg"
+    },
+    {
+      "title": "Rainy Day",
+      "src": "./assets/music/Rainy-day.mp3",
+      "img": "./assets/images/Rainy-day.jpg"
+    },
+    {
+      "title": "Sea",
+      "src": "./assets/music/Sea.mp3",
+      "img": "./assets/images/Sea.jpg"
+    },
+    {
+      "title": "Campfire",
+      "src": "./assets/music/Campfire.mp3",
+      "img": "./assets/images/Campfire.jpg"
+    }
+  ]
+}

@@ -20,6 +20,8 @@
   "homepage": "https://github.com/Lucas-Perez01/Pomodoro-project#readme",
   "description": "",
   "dependencies": {
-    "express": "^5.1.0"
+    "axios": "^1.12.1",
+    "express": "^5.1.0",
+    "follow-redirects": "^1.15.11"
   }
 }

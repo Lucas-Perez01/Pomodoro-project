@@ -41,9 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#btn-restart").addEventListener("click", resetTimer);
 });
 
-// ----------------------------
 // Temporizador
-// ----------------------------
+
 function startTimer() {
   if (isRunning) return;
   isRunning = true;
@@ -65,7 +64,7 @@ function startTimer() {
 function stopTimer() {
   clearInterval(timer);
   isRunning = false;
-  updateStartPauseIcon(); // 🔹 sincroniza icono
+  updateStartPauseIcon();
 }
 
 function resetTimer() {
@@ -77,9 +76,8 @@ function resetTimer() {
   updateSessionLabels(isWorkTime);
 }
 
-// ----------------------------
 // Cambiar entre Focus / Break
-// ----------------------------
+
 function switchToBreak() {
   isWorkTime = false;
   breakTime = getTimeFromInput(document.getElementById("break-time"));
@@ -98,9 +96,8 @@ function switchToWork() {
   notifyUser("Hora de concentrarse 💻");
 }
 
-// ----------------------------
 // Icono play/pause
-// ----------------------------
+
 function updateStartPauseIcon() {
   const btn = document.querySelector("#btn-start-pause");
   if (isRunning) {

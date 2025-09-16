@@ -8,6 +8,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/settings.css" />
+    <link rel="stylesheet" href="./css/music.css" />
 
     <!-- Fuente -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -80,12 +81,44 @@
           </button>
         </div>
       </section>
+
+      <!-- Mini Player de música-->
+      <div class="music-player">
+        <div id="track-info" class="track-info">
+          <img
+            id="track-img"
+            class="track-img"
+            src="./img/lofi1.jpg"
+            alt="Track"
+          />
+          <span id="track-title" class="track-title">Lofi Radio</span>
+        </div>
+
+        <div class="music-controls">
+          <button id="btn-play-pause">
+            <ion-icon name="play-circle-outline"></ion-icon>
+          </button>
+          <button id="btn-next">
+            <ion-icon name="play-skip-forward-outline"></ion-icon>
+          </button>
+        </div>
+
+        <audio id="audio-player" preload="none"></audio>
+      </div>
+
+      <!-- Menú flotante de música -->
+      <div id="music-menu" class="music-menu">
+        <div class="music-list" id="music-list">
+          <!-- Generar cards de forma dinámica -->
+        </div>
+      </div>
     </main>
 
     <!-- Scripts -->
     <script type="module" src="./scripts/pomodoro.js"></script>
     <script type="module" src="./scripts/notifications.js"></script>
-    <!-- <script src="./scripts/unsplash-image.js"></script> -->
+    <script src="./scripts/music.js"></script>
+    <script src="./scripts/unsplash-image.js"></script>
     <script src="./scripts/settings.js"></script>
 
     <!-- Ionicons -->

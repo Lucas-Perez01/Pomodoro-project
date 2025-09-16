@@ -1,19 +1,17 @@
 import { updateDisplay, updateSessionLabels } from "./display.js";
 import { notifyUser } from "./notifications.js";
 
-// ----------------------------
 // Estado del temporizador
-// ----------------------------
+
 let workTime = 25 * 60;
 let breakTime = 5 * 60;
 let isRunning = false;
 let isWorkTime = true;
 let timer;
-let hasStarted = false; // ✅ asegura que no notifique al inicio
+let hasStarted = false; //
 
-// ----------------------------
 // Getters y setters
-// ----------------------------
+
 export function setWorkTime(seconds) {
   workTime = seconds;
   console.log("[setWorkTime]", seconds);
@@ -29,9 +27,8 @@ export function isWorkTimeState() {
   return isWorkTime;
 }
 
-// ----------------------------
 // Control del temporizador
-// ----------------------------
+
 export function startTimer() {
   if (isRunning) return;
   isRunning = true;
