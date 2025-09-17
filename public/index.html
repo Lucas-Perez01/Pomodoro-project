@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pomodoro</title>
+    <link rel="shortcut icon" href="./assets/icons/Pomodoro-logo.png" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/settings.css" />
     <link rel="stylesheet" href="./css/music.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
 
     <!-- Fuente -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -88,7 +90,7 @@
           <img
             id="track-img"
             class="track-img"
-            src="./img/lofi1.jpg"
+            src="./assets/images/Lofi-hiphop.jpg"
             alt="Track"
           />
           <span id="track-title" class="track-title">Lofi Radio</span>
@@ -101,6 +103,21 @@
           <button id="btn-next">
             <ion-icon name="play-skip-forward-outline"></ion-icon>
           </button>
+
+          <!-- Control de volumen -->
+          <div class="volume-container">
+            <button id="volume-btn">
+              <ion-icon name="volume-high-outline"></ion-icon>
+            </button>
+            <input
+              type="range"
+              id="volume-slider"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.5"
+            />
+          </div>
         </div>
 
         <audio id="audio-player" preload="none"></audio>
