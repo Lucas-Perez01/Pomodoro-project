@@ -4,8 +4,13 @@ import path from "path";
 import { fileURLToPath } from "url";
 import axios from "axios";
 
-// Cargar variables de entorno desde .env
-process.loadEnvFile(".env");
+if (process.env.NODE_ENV !== "production") {
+  try {
+    process.loadEnvFile(".env");
+  } catch (err) {
+    console.warn("No se pudo cargar .env, usando process.env de Render");
+  }
+}
 
 const app = express();
 const port = 3000;
