@@ -7,10 +7,18 @@ export function updateDisplay(seconds) {
   const m = Math.floor((seconds % 3600) / 60);
   const s = seconds % 60;
 
-  timeDisplay.textContent =
-    h > 0
-      ? `${h}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`
-      : `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+  if (h > 0) {
+    timeDisplay.innerHTML = `
+      ${h}<span class="colon"></span>
+      ${String(m).padStart(2, "0")}<span class="colon"></span>
+      ${String(s).padStart(2, "0")}
+    `;
+  } else {
+    timeDisplay.innerHTML = `
+      ${String(m).padStart(2, "0")}<span class="colon"></span>
+      ${String(s).padStart(2, "0")}
+    `;
+  }
 }
 
 export function updateSessionLabels(isWorkTime) {

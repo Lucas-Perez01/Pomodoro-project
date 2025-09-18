@@ -1,19 +1,19 @@
 @media (min-width: 480px) and (max-width: 600px) {
   /* Timer */
   time {
-    font-size: 6rem !important;
+    font-size: 6rem;
   }
 
   /* Botones de control */
   .buttons-container {
-    gap: 1.5rem !important;
+    gap: 1.5rem;
     flex-wrap: wrap;
   }
 
   .buttons-container button {
-    width: 50px !important;
-    height: 50px !important;
-    font-size: 1.5rem !important;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
   }
 
   .pomodoro-time-container {
@@ -31,30 +31,30 @@
 
   /* Panel de settings */
   .settings-panel {
-    left: 50% !important;
-    top: 200% !important;
-    transform: translateX(-50%) translateY(100%) !important;
+    left: 50%;
+    top: 200%;
+    transform: translateX(-50%) translateY(100%);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   .settings-panel.show {
-    transform: translateX(-50%) translateY(0) !important;
+    transform: translateX(-50%) translateY(0);
     opacity: 1;
     pointer-events: auto;
   }
 
   /* Reproductor */
   .music-player {
-    position: fixed !important;
-    bottom: 90% !important;
-    top: auto !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    align-items: center !important;
-    width: 86% !important;
-    gap: 0.5rem !important;
+    position: fixed;
+    bottom: 90%;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+    width: 86%;
+    gap: 0.5rem;
   }
 
   .music-controls {
@@ -63,7 +63,7 @@
 
   /* Panel del reproductor (lista de música) */
   .music-menu {
-    position: fixed !important;
+    position: fixed;
     width: 60%;
     left: 50%;
     transform: translateX(-50%) translateY(-20px);
@@ -77,19 +77,19 @@
 
 @media (min-width: 601px) and (max-width: 768px) {
   time {
-    font-size: 6rem !important;
+    font-size: 6rem;
   }
 
   /* Botones de control */
   .buttons-container {
-    gap: 1.5rem !important;
+    gap: 1.5rem;
     flex-wrap: wrap;
   }
 
   .buttons-container button {
-    width: 50px !important;
-    height: 50px !important;
-    font-size: 1.5rem !important;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
   }
 
   .pomodoro-time-container {
@@ -107,30 +107,30 @@
 
   /* Panel de settings */
   .settings-panel {
-    left: 50% !important;
-    top: 200% !important;
-    transform: translateX(-50%) translateY(100%) !important;
+    left: 50%;
+    top: 200%;
+    transform: translateX(-50%) translateY(100%);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   .settings-panel.show {
-    transform: translateX(-50%) translateY(0) !important;
+    transform: translateX(-50%) translateY(0);
     opacity: 1;
     pointer-events: auto;
   }
 
   /* Reproductor */
   .music-player {
-    position: fixed !important;
-    bottom: 90% !important;
-    top: auto !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    align-items: center !important;
-    width: 60% !important;
-    gap: 0.5rem !important;
+    position: fixed;
+    bottom: 90%;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+    width: 60%;
+    gap: 0.5rem;
   }
 
   .music-controls {
@@ -139,7 +139,7 @@
 
   /* Panel del reproductor (lista de música) */
   .music-menu {
-    position: fixed !important;
+    position: fixed;
     width: 60%;
     left: 50%;
     transform: translateX(-50%) translateY(-20px);
@@ -153,19 +153,19 @@
 
 @media (min-width: 769px) and (max-width: 1024px) {
   time {
-    font-size: 6rem !important;
+    font-size: 6rem;
   }
 
   /* Botones de control */
   .buttons-container {
-    gap: 1.5rem !important;
+    gap: 1.5rem;
     flex-wrap: wrap;
   }
 
   .buttons-container button {
-    width: 50px !important;
-    height: 50px !important;
-    font-size: 1.5rem !important;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
   }
 
   .pomodoro-time-container {
@@ -183,39 +183,39 @@
 
   /* Panel de settings */
   .settings-panel {
-    left: 50% !important;
-    top: 200% !important;
-    transform: translateX(-50%) translateY(100%) !important;
+    left: 50%;
+    top: 200%;
+    transform: translateX(-50%) translateY(100%);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   .settings-panel.show {
-    transform: translateX(-50%) translateY(0) !important;
+    transform: translateX(-50%) translateY(0);
     opacity: 1;
     pointer-events: auto;
   }
 
   /* Reproductor */
   .music-player {
-    position: fixed !important;
-    bottom: 90% !important;
-    top: auto !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    align-items: center !important;
-    width: 60% !important;
-    gap: 0.5rem !important;
+    position: fixed;
+    bottom: 90%;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+    width: 60%;
+    gap: 0.5rem;
   }
 
   .music-controls {
-    justify-content: center !important;
+    justify-content: center;
   }
 
   /* Panel del reproductor (lista de música) */
   .music-menu {
-    position: fixed !important;
+    position: fixed;
     width: 60%;
     left: 50%;
     transform: translateX(-50%) translateY(-20px);
