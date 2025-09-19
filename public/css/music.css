@@ -37,6 +37,7 @@
   display: flex;
   gap: 0.6rem;
   align-items: flex-end;
+  flex-shrink: 0;
 }
 
 .music-controls button {
@@ -48,9 +49,9 @@
 }
 
 .volume-container {
-  position: relative;
   display: flex;
   align-items: center;
+  gap: 0.4rem;
 }
 
 #volume-btn {

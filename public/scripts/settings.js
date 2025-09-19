@@ -1,8 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const toggleBtn = document.getElementById("toggle-settings");
+  const toggleBtnDesktop = document.getElementById("toggle-settings");
+  const toggleBtnMobile = document.getElementById("toggle-settings-mobile");
   const settingsPanel = document.getElementById("settings-panel");
 
-  toggleBtn.addEventListener("click", () => {
+  function togglePanel() {
     settingsPanel.classList.toggle("show");
-  });
+  }
+
+  if (toggleBtnDesktop) {
+    toggleBtnDesktop.addEventListener("click", togglePanel);
+  }
+
+  if (toggleBtnMobile) {
+    toggleBtnMobile.addEventListener("click", togglePanel);
+  }
 });
