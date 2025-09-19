@@ -1,13 +1,66 @@
-@media (min-width: 480px) and (max-width: 600px) {
+@media (max-width: 480px) {
   /* Timer */
   time {
-    font-size: 6rem;
+    font-size: 4rem;
   }
 
   /* Botones de control */
   .buttons-container {
-    gap: 1.5rem;
-    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .buttons-container button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.4rem;
+  }
+
+  /* Settings */
+  .settings-btn {
+    width: 45px;
+    height: 45px;
+    top: 35%;
+    right: -60px;
+  }
+
+  .settings-panel {
+    position: fixed;
+    width: 90%;
+    max-width: 95vw;
+    left: 50%;
+    top: auto;
+    bottom: 80px;
+    transform: translateX(-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .settings-panel.show {
+    transform: translateX(-50%) translateY(-5px);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .music-player {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    gap: 0.5rem;
+  }
+
+  .music-menu {
+    width: 85%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    max-height: 200px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 600px) {
+  time {
+    font-size: 5rem;
   }
 
   .buttons-container button {
@@ -16,62 +69,50 @@
     font-size: 1.5rem;
   }
 
-  .pomodoro-time-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-  }
-
   .settings-btn {
     width: 50px;
     height: 50px;
-    top: 30%;
+    top: 25%;
+    right: -70px;
   }
 
-  /* Panel de settings */
   .settings-panel {
+    position: fixed;
     left: 50%;
-    top: 200%;
-    transform: translateX(-50%) translateY(100%);
+    top: auto;
+    bottom: 80px;
+    transform: translateX(-50%) translateY(0);
+    max-width: 90vw;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   .settings-panel.show {
-    transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%) translateY(-60px);
     opacity: 1;
     pointer-events: auto;
   }
 
-  /* Reproductor */
   .music-player {
-    position: fixed;
-    bottom: 90%;
-    top: auto;
+    width: 90%;
     left: 50%;
     transform: translateX(-50%);
-    align-items: center;
-    width: 86%;
-    gap: 0.5rem;
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
 
-  .music-controls {
-    justify-content: center !important;
-  }
-
-  /* Panel del reproductor (lista de música) */
   .music-menu {
-    position: fixed;
     width: 60%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-20px);
     max-height: 250px;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
   }
 
   .music-menu.show {
-    transform: translateX(-50%) translateY(0); /* 👈 también aquí */
+    transform: translateX(-50%) translateY(20px);
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 100;
   }
 }
 
@@ -80,74 +121,53 @@
     font-size: 6rem;
   }
 
-  /* Botones de control */
-  .buttons-container {
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
-
   .buttons-container button {
     width: 50px;
     height: 50px;
     font-size: 1.5rem;
   }
 
-  .pomodoro-time-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-  }
-
   .settings-btn {
     width: 50px;
     height: 50px;
     top: 30%;
+    right: -70px;
   }
 
-  /* Panel de settings */
   .settings-panel {
+    position: fixed;
     left: 50%;
-    top: 200%;
-    transform: translateX(-50%) translateY(100%);
+    top: auto;
+    bottom: 80px;
+    transform: translateX(-50%) translateY(0);
+    max-width: 90vw;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   .settings-panel.show {
-    transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%) translateY(-60px);
     opacity: 1;
     pointer-events: auto;
   }
 
-  /* Reproductor */
   .music-player {
-    position: fixed;
-    bottom: 90%;
-    top: auto;
+    width: 80%;
     left: 50%;
     transform: translateX(-50%);
-    align-items: center;
-    width: 60%;
-    gap: 0.5rem;
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
 
-  .music-controls {
-    justify-content: center !important;
-  }
-
-  /* Panel del reproductor (lista de música) */
   .music-menu {
-    position: fixed;
-    width: 60%;
     left: 50%;
-    transform: translateX(-50%) translateY(-20px);
-    max-height: 250px;
+    transform: translateX(-50%) translateY(0);
   }
 
   .music-menu.show {
-    transform: translateX(-50%) translateY(0); /* 👈 también aquí */
+    transform: translateX(-50%) translateY(20px);
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 
@@ -156,10 +176,8 @@
     font-size: 6rem;
   }
 
-  /* Botones de control */
   .buttons-container {
-    gap: 1.5rem;
-    flex-wrap: wrap;
+    position: relative;
   }
 
   .buttons-container button {
@@ -168,61 +186,114 @@
     font-size: 1.5rem;
   }
 
-  .pomodoro-time-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-  }
-
   .settings-btn {
     width: 50px;
     height: 50px;
     top: 30%;
+    right: -70px;
   }
 
-  /* Panel de settings */
   .settings-panel {
+    position: fixed;
     left: 50%;
-    top: 200%;
-    transform: translateX(-50%) translateY(100%);
+    top: auto;
+    bottom: 80px;
+    transform: translateX(-50%) translateY(0);
+    max-width: 90vw;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   .settings-panel.show {
-    transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%) translateY(-60px);
     opacity: 1;
     pointer-events: auto;
   }
 
-  /* Reproductor */
   .music-player {
-    position: fixed;
-    bottom: 90%;
-    top: auto;
+    width: 60%;
     left: 50%;
     transform: translateX(-50%);
-    align-items: center;
-    width: 60%;
-    gap: 0.5rem;
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
 
-  .music-controls {
-    justify-content: center;
-  }
-
-  /* Panel del reproductor (lista de música) */
   .music-menu {
-    position: fixed;
     width: 60%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-20px);
     max-height: 250px;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
   }
 
   .music-menu.show {
-    transform: translateX(-50%) translateY(0); /* 👈 también aquí */
+    transform: translateX(-50%) translateY(20px);
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 100;
+  }
+}
+
+@media (max-width: 1024px) {
+  .pomodoro-time-container .settings-btn {
+    display: none;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1439px) {
+  #toggle-settings-mobile {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pomodoro-time-container .settings-btn {
+    display: none !important;
+  }
+
+  .settings-panel {
+    position: fixed;
+    left: 50%;
+    top: auto;
+    bottom: 80px;
+    transform: translateX(-50%) translateY(0);
+    max-width: 400px;
+    width: 30%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .settings-panel.show {
+    transform: translateX(-50%) translateY(-60px);
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+@media (min-width: 1440px) {
+  .pomodoro-time-container .settings-btn {
+    display: flex !important;
+  }
+
+  #toggle-settings-mobile {
+    display: none !important;
+  }
+
+  .settings-panel {
+    position: absolute;
+    top: 50%;
+    left: 110%;
+    transform: translateY(-50%);
+    max-width: 300px;
+    width: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .settings-panel.show {
+    transform: translateY(-50%) translateX(20%);
+    opacity: 1;
+    pointer-events: auto;
   }
 }
