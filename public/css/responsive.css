@@ -134,6 +134,91 @@
   }
 }
 
+@media (max-width: 480px) and (orientation: landscape) {
+  time {
+    font-size: 2.8rem;
+  }
+
+  .buttons-container {
+    gap: 0.5rem;
+  }
+
+  .buttons-container button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  #toggle-settings-mobile {
+    width: 40px;
+    height: 40px;
+  }
+
+  .settings-panel {
+    position: fixed;
+    bottom: 50px;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 80vw;
+    max-height: 120px;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 100;
+  }
+
+  .settings-panel.show {
+    transform: translateX(-50%) translateY(30px);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .music-player {
+    width: 80%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.3rem;
+  }
+
+  .music-menu {
+    top: 60px;
+  }
+
+  .track-info {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    width: auto;
+  }
+
+  .track-img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .track-title {
+    font-size: 0.7rem;
+    max-width: 100px;
+  }
+
+  .music-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+    width: auto;
+    margin-left: 0;
+  }
+
+  #volume-slider {
+    width: 40px;
+  }
+}
+
 @media (min-width: 481px) and (max-width: 600px) {
   time {
     font-size: 5rem;
@@ -192,6 +277,101 @@
   }
 }
 
+@media (min-width: 481px) and (max-width: 600px) and (orientation: landscape) {
+  time {
+    font-size: 4.2rem;
+  }
+
+  .buttons-container {
+    gap: 0.6rem;
+  }
+
+  .buttons-container button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+
+  .settings-btn {
+    width: 45px;
+    height: 45px;
+    top: auto;
+    right: 10px;
+  }
+
+  .settings-panel {
+    position: fixed;
+    left: 50%;
+    bottom: 60px;
+    top: auto;
+    transform: translateX(-50%);
+    max-width: 85vw;
+    max-height: 150px;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 100;
+  }
+
+  .settings-panel.show {
+    transform: translateX(-50%) translateY(50px);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .music-player {
+    width: 80%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem;
+    padding: 0.3rem;
+  }
+
+  .music-menu {
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-height: 150px;
+  }
+
+  .track-info {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0.4rem;
+    width: auto;
+  }
+
+  .track-img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .track-title {
+    font-size: 0.75rem;
+    max-width: 120px;
+  }
+
+  .music-controls {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+    width: auto;
+    margin-left: 0;
+  }
+
+  #volume-slider {
+    width: 35px;
+    height: 4px;
+  }
+
+  #volume-btn ion-icon {
+    font-size: 1.6rem;
+  }
+}
+
 @media (min-width: 601px) and (max-width: 768px) {
   time {
     font-size: 6rem;
@@ -244,6 +424,131 @@
     transform: translateX(-50%) translateY(20px);
     opacity: 1;
     pointer-events: auto;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 768px) and (orientation: landscape) {
+  time {
+    font-size: 4rem;
+  }
+
+  .buttons-container {
+    gap: 0.6rem;
+    justify-content: center;
+  }
+
+  .buttons-container button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+
+  #toggle-settings-mobile {
+    width: 45px;
+    height: 45px;
+  }
+
+  .settings-panel {
+    position: fixed;
+    bottom: 45px;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    max-width: 70vw;
+    max-height: 120px;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 100;
+  }
+
+  .settings-panel.show {
+    transform: translateX(-50%) translateY(30px);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .music-player {
+    width: 70%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .music-menu {
+    width: 70%;
+    top: 70px;
+    max-height: 160px;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .music-menu.show {
+    transform: translateX(-50%) translateY(15px);
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 100;
+  }
+
+  .track-info {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4rem;
+    width: auto;
+  }
+
+  .track-img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .track-title {
+    font-size: 0.8rem;
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .music-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0;
+  }
+
+  .volume-container {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .music-controls #btn-play-pause,
+  .music-controls #btn-next {
+    position: relative;
+    top: 3px;
+  }
+
+  #volume-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  #volume-btn ion-icon {
+    font-size: 1.6rem;
+    position: relative;
+    top: 0px;
+  }
+
+  #volume-slider {
+    width: 50px;
+    height: 4px;
   }
 }
 
@@ -309,6 +614,136 @@
   }
 }
 
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  time {
+    font-size: 5rem;
+  }
+
+  .buttons-container {
+    gap: 0.8rem;
+    justify-content: center;
+  }
+
+  .buttons-container button {
+    width: 55px;
+    height: 55px;
+    font-size: 1.5rem;
+  }
+
+  #toggle-settings-mobile {
+    width: 55px;
+    height: 55px;
+  }
+
+  .settings-panel {
+    position: fixed;
+    bottom: 60px;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    max-width: 60vw;
+    max-height: 140px;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 100;
+  }
+
+  .settings-panel.show {
+    transform: translateX(-50%) translateY(55px);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .music-player {
+    width: 65%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.4rem;
+  }
+
+  .music-menu {
+    width: 65%;
+    top: 80px;
+    max-height: 180px;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .music-menu.show {
+    transform: translateX(-50%) translateY(15px);
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 100;
+  }
+
+  .track-info {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;
+    width: auto;
+  }
+
+  .track-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .track-title {
+    font-size: 1rem;
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .music-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0;
+  }
+
+  .volume-container {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    position: relative;
+    top: -2px;
+  }
+
+  .music-controls #btn-play-pause,
+  .music-controls #btn-next {
+    position: relative;
+    top: 3px;
+  }
+
+  #volume-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+    position: relative;
+    top: 0;
+  }
+
+  #volume-btn ion-icon {
+    font-size: 1.8rem;
+  }
+
+  #volume-slider {
+    position: relative;
+    top: 3px;
+    width: 60px;
+    height: 5px;
+  }
+}
+
 @media (max-width: 1024px) {
   .pomodoro-time-container .settings-btn {
     display: none;
@@ -343,6 +778,132 @@
     transform: translateX(-50%) translateY(-60px);
     opacity: 1;
     pointer-events: auto;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1439px) and (orientation: landscape) {
+  #toggle-settings-mobile {
+    display: none;
+  }
+
+  .pomodoro-time-container .settings-btn {
+    display: flex !important;
+    transform: translateY(-15px);
+    width: 55px;
+    height: 55px;
+  }
+
+  time {
+    font-size: 6rem;
+  }
+
+  .buttons-container {
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .buttons-container button {
+    width: 55px;
+    height: 55px;
+    font-size: 1.6rem;
+  }
+
+  #toggle-settings-mobile {
+    display: none !important;
+  }
+
+  .settings-panel {
+    position: absolute;
+    top: 50%;
+    left: 110%;
+    bottom: auto;
+    transform: translateY(-50%);
+    max-width: 300px;
+    width: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .settings-panel.show {
+    transform: translateY(-50%) translateX(20%);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .music-player {
+    width: 50%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .track-info {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    width: auto;
+  }
+
+  .track-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .track-title {
+    font-size: 0.9rem;
+    max-width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .music-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .music-controls #btn-play-pause,
+  .music-controls #btn-next {
+    font-size: 1.6rem;
+    position: relative;
+    top: 3px;
+  }
+
+  .music-controls #volume-btn ion-icon {
+    font-size: 1.8rem;
+  }
+
+  #volume-slider {
+    width: 60px;
+    height: 4px;
+  }
+
+  .volume-container {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .music-menu {
+    width: 50%;
+    top: 70px;
+    max-height: 200px;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .music-menu.show {
+    transform: translateX(-50%) translateY(15px);
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 100;
   }
 }
 
