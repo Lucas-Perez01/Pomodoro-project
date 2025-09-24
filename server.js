@@ -37,8 +37,14 @@ app.get("/api/background", async (req, res) => {
   try {
     const url = `${baseUrl}&client_id=${clientId}`;
     const response = await axios.get(url);
-    const imageUrl = response.data.urls.regular;
-    res.json({ url: imageUrl });
+
+    const rawUrl = response.data.urls.raw;
+
+    const { w = 1920, h = 1080 } = req.query;
+
+    const optimizedUrl = `${rawUrl}&w=${w}&h=${h}&q=80&fm=webp&fit=crop`;
+
+    res.json({ url: optimizedUrl });
   } catch (error) {
     console.error("Error al obtener imagen de Unsplash:", error.message);
     res.status(500).json({ url: null });
